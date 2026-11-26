@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aulia Dea Fadilah — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFF3EA;--card:#FFFBF7;--ink:#2E2342;--mute:#6d6280;--pink:#F2A7BC;--blue:#AEBFEA;--yel:#FFD66B;color-scheme:light}
+@media(prefers-color-scheme:dark){:root{--bg:#1d1630;--card:#2a2040;--ink:#FFF3EA;--mute:#b9aed0;color-scheme:dark}}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:'Bricolage Grotesque',system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.6;overflow-x:clip;padding-bottom:env(safe-area-inset-bottom,0)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0);z-index:60;background:var(--bg)}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+.w{max-width:1120px;margin:0 auto;padding:0 22px}
+section{padding:92px 0;position:relative}
+h1,h2{font-weight:800;line-height:1.05;letter-spacing:-.03em}
+h2{font-size:clamp(2rem,5.4vw,3.6rem);margin-bottom:14px;text-wrap:balance}
+h3{line-height:1.2}
+.lead{color:var(--mute);max-width:56ch;font-size:1.06rem}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+#bar{position:fixed;top:env(safe-area-inset-top,0);left:0;height:5px;width:0;background:linear-gradient(90deg,var(--pink),var(--yel),var(--blue));z-index:70;border-radius:0 5px 5px 0}
+nav{position:fixed;top:calc(env(safe-area-inset-top,0) + 12px);left:50%;transform:translateX(-50%);z-index:50;display:flex;gap:2px;background:var(--card);border:2px solid var(--ink);border-radius:99px;padding:5px;box-shadow:3px 3px 0 var(--ink);max-width:calc(100vw - 20px);overflow-x:auto;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav a{padding:5px 13px;border-radius:99px;text-decoration:none;font-size:.86rem;font-weight:600;white-space:nowrap;transition:.2s}
+nav a:hover{background:var(--yel);color:#2E2342}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border:2px solid var(--ink);border-radius:99px;background:var(--yel);color:#2E2342;font:600 1rem 'Bricolage Grotesque',system-ui,sans-serif;text-decoration:none;box-shadow:4px 4px 0 var(--ink);cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translate(-2px,-3px);box-shadow:7px 7px 0 var(--ink)}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+.btn.alt{background:var(--card);color:var(--ink)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.pill{display:inline-block;font:600 .8rem 'JetBrains Mono',ui-monospace,monospace;background:var(--card);border:2px solid var(--ink);border-radius:99px;padding:3px 12px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+
+/* hero */
+#hero{min-height:100svh;display:flex;align-items:center;padding:110px 0 60px;overflow-x:clip}
+.hg{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:center;width:100%}
+.hi{font:.9rem 'JetBrains Mono',ui-monospace,monospace;background:var(--pink);color:#2E2342;display:inline-block;padding:4px 14px;border-radius:99px;margin-bottom:18px;transform:rotate(-2deg)}
+h1{font-size:clamp(2.9rem,13.5vw,6.2rem);line-height:.98}
+h1 .wd{display:block;white-space:nowrap}
+h1 .l{display:inline-block;opacity:0;transform:translateY(50px) rotate(8deg);animation:pop .7s cubic-bezier(.2,1.4,.4,1) forwards}
+@keyframes pop{to{opacity:1;transform:none}}
+.tag{font-size:clamp(1.1rem,2.4vw,1.45rem);font-weight:600;margin:20px 0 8px;max-width:28ch}
+.type{font-family:'JetBrains Mono',ui-monospace,monospace;color:var(--mute);min-height:1.7em}
+.type::after{content:"▍";animation:bl 1s steps(1) infinite;color:var(--pink)}
+@keyframes bl{50%{opacity:0}}
+.cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
+.ph{position:relative;justify-self:center;width:min(340px,78vw)}
+.arch{border:3px solid var(--ink);border-radius:999px 999px 28px 28px;overflow:hidden;aspect-ratio:3/4.1;background:var(--blue);box-shadow:10px 10px 0 var(--pink);animation:fl 6s ease-in-out infinite}
+.arch img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+@keyframes fl{50%{transform:translateY(-10px) rotate(1deg)}}
+.st{position:absolute;font-size:2rem;animation:spin 14s linear infinite}
+.chip{position:absolute;background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:6px 12px;font:600 .82rem 'JetBrains Mono',ui-monospace,monospace;box-shadow:3px 3px 0 var(--ink);animation:fl 5s ease-in-out infinite}
+@keyframes spin{to{rotate:360deg}}
+
+/* about */
+.ab{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+.story p{margin-bottom:16px;max-width:54ch}
+.pols{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start;max-width:480px;justify-self:center;width:100%}
+.pol{background:#fff;border:2px solid var(--ink);padding:9px 9px 34px;box-shadow:5px 5px 0 var(--ink);transition:transform .35s cubic-bezier(.2,1.4,.4,1);position:relative;color:#2E2342;font-weight:600}
+.pol:nth-child(1){transform:rotate(-4deg)}.pol:nth-child(2){transform:rotate(4deg);margin-top:46px}
+.pol:hover{transform:rotate(0) scale(1.03);z-index:2}
+.pol img{aspect-ratio:4/5;object-fit:cover;width:100%;background:var(--blue)}
+.pol span{position:absolute;bottom:8px;left:0;right:0;text-align:center;font-size:.82rem}
+
+/* skills */
+.sk{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.skc{background:var(--card);border:2px solid var(--ink);border-radius:22px;box-shadow:5px 5px 0 var(--ink);overflow:hidden}
+.skc header{padding:14px 20px;border-bottom:2px solid var(--ink);display:flex;justify-content:space-between;align-items:baseline;color:#2E2342}
+.skc:nth-child(1) header{background:var(--pink)}.skc:nth-child(2) header{background:var(--blue)}.skc:nth-child(3) header{background:var(--yel)}
+.skc h3{font-size:1.2rem}.skc header span{font:600 .8rem 'JetBrains Mono',ui-monospace,monospace;opacity:.7}
+.skc ul{list-style:none;padding:8px 20px 12px}
+.skc li{padding:11px 0;border-bottom:1.5px dashed color-mix(in srgb,var(--ink) 25%,transparent)}
+.skc li:last-child{border:0}
+.skc li b{display:block;font-size:1rem}
+.skc li small{color:var(--mute);font-size:.88rem;line-height:1.4;display:block}
+.note{margin-top:20px;color:var(--mute)}
+.note a{font-weight:600;color:var(--ink)}
+
+/* magang + kkm shared */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:32px}
+.frame{border:3px solid var(--ink);border-radius:20px;overflow:hidden;box-shadow:10px 10px 0 var(--blue);background:var(--card);cursor:zoom-in;transition:transform .35s cubic-bezier(.2,1.4,.4,1)}
+.frame:hover{transform:rotate(-1deg) scale(1.015)}
+.frame img{width:100%;object-fit:cover}
+.frame figcaption{padding:10px 16px;font-size:.88rem;border-top:2px solid var(--ink);color:var(--mute);background:var(--card)}
+.two .txt p{margin-bottom:14px;max-width:54ch}
+
+/* project */
+.pj{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;margin-top:34px}
+.br{border:3px solid var(--ink);border-radius:18px;overflow:hidden;box-shadow:10px 10px 0 var(--pink);background:var(--card);transition:transform .15s}
+.br i{display:flex;gap:6px;padding:10px 14px;border-bottom:2px solid var(--ink);background:var(--yel)}
+.br i s{width:11px;height:11px;border-radius:50%;background:var(--ink);opacity:.8}
+.pj dl{display:grid;gap:12px;margin:18px 0}.pj dt{font-weight:800}.pj dd{color:var(--mute)}
+.hk{width:100%;border-collapse:collapse;border:2px solid var(--ink);border-radius:12px;background:var(--card);margin-bottom:18px;font-size:.92rem}
+.hk td{padding:8px 12px;border-bottom:1.5px dashed color-mix(in srgb,var(--ink) 30%,transparent);vertical-align:top}
+.hk tr:last-child td{border:0}.hk td:first-child{font-weight:800;width:38%}
+.term{margin-top:46px;border:2px solid #FFF3EA;border-radius:16px;overflow:hidden;box-shadow:8px 8px 0 var(--pink);background:#150f24;color:#f4eaff}
+.term i{display:flex;gap:7px;align-items:center;padding:10px 14px;background:#33264f;font:.8rem 'JetBrains Mono',ui-monospace,monospace;color:#c9bde0;font-style:normal}
+.term i s{width:11px;height:11px;border-radius:50%;background:var(--pink)}.term i s:nth-child(2){background:var(--yel)}.term i s:nth-child(3){background:var(--blue)}
+pre{padding:20px;font:.86rem/1.7 'JetBrains Mono',ui-monospace,monospace;overflow-x:auto;min-height:320px;white-space:pre}
+.k{color:#F2A7BC}.f{color:#AEBFEA}.s{color:#FFD66B}.m{color:#8f82a8}.ok{color:#9be3b0}
+.cur{display:inline-block;width:9px;height:1.1em;background:var(--yel);vertical-align:middle;animation:bl 1s steps(1) infinite}
+
+/* kkm */
+#kkm{background:var(--blue);color:#2E2342}
+#kkm .lead,#kkm .pill{color:#2E2342}
+#kkm .pill{background:#fff9}
+.steps{list-style:none;counter-reset:s;display:grid;gap:12px;margin-top:6px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:12px;background:var(--card);color:var(--ink);border:2px solid #2E2342;border-radius:16px;padding:12px 16px;box-shadow:3px 3px 0 #2E2342}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--yel);color:#2E2342;border:2px solid #2E2342;font-weight:800}
+.steps b{display:block}.steps span{font-size:.93rem;color:var(--mute);line-height:1.5;display:block}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:40px}
+.gal .frame{box-shadow:8px 8px 0 #2E2342;border-color:#2E2342}
+.gal img{aspect-ratio:16/10}
+
+/* documents */
+.dstat{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.dstat span{font:600 .82rem 'JetBrains Mono',ui-monospace,monospace;color:var(--mute)}
+.dstat b{color:var(--ink)}
+.tabs{display:flex;gap:10px;margin:30px 0 26px;overflow-x:auto;padding:4px 4px 10px;scrollbar-width:none;position:sticky;top:64px;z-index:20;background:linear-gradient(var(--bg) 80%,transparent)}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border:2px solid var(--ink);border-radius:99px;background:var(--card);color:var(--ink);font:600 .95rem 'Bricolage Grotesque',system-ui,sans-serif;cursor:pointer;box-shadow:3px 3px 0 var(--ink);transition:transform .2s,box-shadow .2s,background .2s}
+.tab:hover{transform:translateY(-2px)}
+.tab i{font:600 .75rem 'JetBrains Mono',ui-monospace,monospace;font-style:normal;background:color-mix(in srgb,var(--ink) 12%,transparent);border-radius:99px;padding:0 8px}
+.tab[aria-pressed=true]{background:var(--ink);color:var(--bg);box-shadow:1px 1px 0 var(--ink);transform:translate(2px,2px)}
+.tab[aria-pressed=true] i{background:var(--yel);color:#2E2342}
+.docs{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px}
+.dc{position:relative;background:var(--card);border:2px solid var(--ink);border-radius:20px;box-shadow:5px 5px 0 var(--ink);overflow:hidden;cursor:pointer;text-align:left;font:inherit;color:inherit;padding:0;display:flex;flex-direction:column;transition:transform .3s cubic-bezier(.2,1.4,.4,1),box-shadow .3s;animation:dcin .45s cubic-bezier(.2,1.2,.4,1) both}
+@keyframes dcin{from{opacity:0;transform:translateY(18px) scale(.96)}}
+.dc:hover,.dc:focus-visible{transform:translateY(-6px) rotate(-.8deg);box-shadow:8px 11px 0 var(--ink)}
+.dc:nth-child(even):hover{transform:translateY(-6px) rotate(.8deg)}
+.dc .th{position:relative;aspect-ratio:4/3;background:#fff;border-bottom:2px solid var(--ink);overflow:hidden}
+.dc .th img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .5s}
+.dc:hover .th img{transform:scale(1.06)}
+.dc .th::after{content:"Perbesar ⤢";position:absolute;inset:0;display:grid;place-items:center;background:#2E2342b8;color:#fff;font-weight:700;opacity:0;transition:opacity .25s}
+.dc:hover .th::after,.dc:focus-visible .th::after{opacity:1}
+.dc .tg{position:absolute;top:10px;left:10px;z-index:2;font:600 .72rem 'JetBrains Mono',ui-monospace,monospace;color:#2E2342;border:2px solid #2E2342;border-radius:99px;padding:1px 10px}
+.c-magang{background:var(--pink)}.c-kompetensi{background:var(--yel)}.c-bahasa{background:var(--blue)}.c-kursus{background:#9be3b0}
+.dc .tx{padding:13px 16px 16px}
+.dc b{display:block;font-size:1rem;line-height:1.3}
+.dc small{display:block;color:var(--mute);font-size:.84rem;line-height:1.4;margin-top:4px}
+.dc time{display:block;font:600 .76rem 'JetBrains Mono',ui-monospace,monospace;margin-top:8px;opacity:.75}
+
+/* contact */
+#ct{text-align:center;overflow-x:clip}
+#ct h2{font-size:clamp(2.4rem,9vw,5.6rem)}
+.ml{font-size:clamp(1.05rem,3.2vw,1.7rem);margin:24px 0;word-break:break-word}
+.row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:90}
+footer{text-align:center;padding:26px;color:var(--mute);font-size:.85rem}
+
+/* modal */
+#md{position:fixed;inset:0;background:#150f24ee;display:none;place-items:center;z-index:100;padding:14px;backdrop-filter:blur(6px)}
+#md.o{display:grid}
+#md .bx{position:relative;width:min(980px,100%);max-height:100%;display:flex;flex-direction:column;background:var(--card);border:3px solid var(--ink);border-radius:20px;overflow:hidden;animation:pop .35s cubic-bezier(.2,1.4,.4,1) both}
+#md .st2{position:relative;flex:1;min-height:0;overflow:auto;background:#fff;border-bottom:3px solid var(--ink);display:grid;place-items:center;touch-action:pan-y}
+#mi{max-width:100%;max-height:68vh;object-fit:contain;cursor:zoom-in;user-select:none;-webkit-user-drag:none}
+#md.z #mi{max-width:none;max-height:none;width:190%;cursor:zoom-out}
+#md.z .st2{place-items:start}
+#md .cap{padding:12px 16px 14px;display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+#md .cap div{min-width:0}
+#md h4{font-size:1.15rem;line-height:1.25;margin:4px 0 2px}
+#md p{color:var(--mute);font-size:.9rem}
+#md .tg{display:inline-block;font:600 .72rem 'JetBrains Mono',ui-monospace,monospace;color:#2E2342;border:2px solid #2E2342;border-radius:99px;padding:1px 10px}
+#md .nv{display:flex;align-items:center;gap:10px}
+#md .nv span{font:600 .85rem 'JetBrains Mono',ui-monospace,monospace;color:var(--mute);min-width:52px;text-align:center}
+.rb{width:42px;height:42px;border-radius:50%;border:2px solid var(--ink);background:var(--yel);color:#2E2342;font-size:1.1rem;cursor:pointer;box-shadow:2px 2px 0 var(--ink);transition:transform .15s}
+.rb:hover{transform:scale(1.1)}.rb:active{transform:translate(2px,2px);box-shadow:0 0 0}
+#x{position:absolute;right:10px;top:10px;z-index:5;background:var(--pink)}
+.hint{font-size:.76rem;color:var(--mute);margin-top:2px}
+
+/* mascot */
+#mc{position:fixed;left:12px;bottom:calc(env(safe-area-inset-bottom,0) + 12px);z-index:55;width:72px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+#mc svg{width:100%;overflow:visible;animation:fl 3.4s ease-in-out infinite}
+#bb{position:absolute;left:58px;bottom:54px;width:max-content;max-width:min(220px,62vw);background:var(--card);border:2px solid var(--ink);border-radius:14px 14px 14px 2px;padding:6px 12px;font-size:.82rem;font-weight:600;line-height:1.35;opacity:0;transform:scale(.6);transform-origin:0 100%;transition:.3s cubic-bezier(.2,1.5,.4,1);pointer-events:none}
+#bb.on{opacity:1;transform:none}
+
+.js .rv{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s cubic-bezier(.2,.9,.3,1)}
+.js .rv.in{opacity:1;transform:none}
+
+@media(max-width:860px){
+ section{padding:68px 0}
+ .hg,.ab,.two,.pj,.gal{grid-template-columns:1fr}
+ .sk{grid-template-columns:1fr}
+ #hero{padding-top:96px}
+ .ph{margin:18px auto 0}
+ .chip{left:-6px!important;right:auto!important}.chip.r{left:auto!important;right:-6px!important}
+ .st{right:-4px!important;left:auto!important}
+ .two .frame{order:-1}
+ #mc{width:54px}#bb{left:44px;bottom:40px}.tabs{top:58px}
+}
+@media(max-width:520px){.docs{grid-template-columns:repeat(2,1fr);gap:14px}.dc b{font-size:.9rem}.dc small{display:none}.dc .tx{padding:10px 12px 12px}.dc .tg{font-size:.64rem;padding:0 7px;top:7px;left:7px}.dc .th::after{display:none}.dc{box-shadow:3px 3px 0 var(--ink)}#md .cap{flex-direction:column;align-items:stretch}#md .nv{justify-content:center}#mi{max-height:58vh}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}h1 .l{opacity:1;transform:none}.js .rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+<div id="bar"></div><canvas id="fx"></canvas>
+<nav><a href="#hero">Hai</a><a href="#about">Tentang</a><a href="#skills">Skill</a><a href="#magang">Magang</a><a href="#kkm">KKM</a><a href="#dokumen">Dokumen</a><a href="#ct">Kontak</a></nav>
+
+<header id="hero"><div class="w hg"><div>
+<span class="hi">~/halo-dunia</span>
+<h1 id="nm" aria-label="Aulia Dea Fadilah"><span class="wd">Aulia Dea</span><span class="wd">Fadilah</span></h1>
+<p class="tag">Aku bikin sistem web yang rapi dan gampang dipakai.</p>
+<p class="type" id="ty"></p>
+<div class="cta"><a class="btn" href="#magang">Lihat perjalanannya ✦</a><a class="btn alt" href="#ct">Ngobrol yuk</a></div></div>
+<div class="ph"><div class="arch"><img src="img/hero-toga.jpg" width="620" height="932" alt="Aulia Dea Fadilah memakai toga wisuda" fetchpriority="high"></div>
+<span class="st" style="top:-18px;right:-10px">✦</span>
+<span class="chip" style="top:46px;left:-34px">&lt;/&gt; web dev</span><span class="chip r" style="bottom:20px;right:-24px;animation-delay:-2s">S.Kom ✓</span></div></div></header>
+
+<section id="about"><div class="w ab"><div class="story rv"><h2>Aku suka bikin kerjaan orang jadi lebih ringan.</h2>
+<p>Aku lulusan Sistem Informasi Universitas Bina Bangsa, peminatan E-Business. Menurutku sistem yang bagus selalu dimulai dari mendengarkan: duduk bareng tim, paham dulu cara kerja mereka, baru digambar jadi diagram dan ditulis jadi kode.</p>
+<p>Titik baliknya waktu magang di PERUMDA Tirta Al Bantani. Dari situ lahir sistem inventaris aset berbasis web dengan QR Code. Lalu lewat KKM, aku belajar sisi lainnya: terjun langsung dan mendampingi UMKM masuk dunia digital.</p>
+<p>Sekarang aku terus menambah jam terbang di web dan mobile, dengan satu pegangan: tampilannya harus ramah, bahkan buat orang yang baru pertama kali membukanya.</p></div>
+<div class="pols rv"><figure class="pol"><img src="img/kebaya.jpg" width="560" height="842" alt="Aulia berkebaya merah muda duduk di tangga" loading="lazy" decoding="async"><span>hari-hari santai</span></figure><figure class="pol"><img src="img/toga-langkah.jpg" width="520" height="735" alt="Aulia melangkah sambil memegang topi toga" loading="lazy" decoding="async"><span>langkah berikutnya →</span></figure></div></div></section>
+
+<section id="skills"><div class="w"><h2 class="rv">Skill &amp; alat kerja</h2><p class="lead rv">Yang benar-benar kupakai di proyek, dikelompokkan biar gampang dibaca.</p>
+<div class="sk">
+<div class="skc rv"><header><h3>Membangun web</h3><span>01</span></header><ul>
+<li><b>CodeIgniter 4</b><small>Framework utama di sistem inventaris aset</small></li>
+<li><b>Front End</b><small>Tersertifikasi BNSP sebagai Front End Developer</small></li>
+<li><b>Antarmuka responsif</b><small>Nyaman dibuka di HP maupun laptop</small></li>
+<li><b>Autentikasi &amp; hak akses (RBAC)</b><small>Fitur sesuai peran pengguna</small></li></ul></div>
+<div class="skc rv"><header><h3>Merancang sistem</h3><span>02</span></header><ul>
+<li><b>Analisis proses bisnis</b><small>Memetakan dulu cara kerja yang sudah berjalan</small></li>
+<li><b>UML</b><small>Menggambar alur sebelum menulis kode</small></li>
+<li><b>QR Code</b><small>Identifikasi aset lewat sekali scan</small></li>
+<li><b>Pengelolaan data</b><small>Data tertata dan mudah dicari</small></li></ul></div>
+<div class="skc rv"><header><h3>Pendukung</h3><span>03</span></header><ul>
+<li><b>UX</b><small>Unit kompetensi dari sertifikasi BNSP</small></li>
+<li><b>Debugging</b><small>Unit kompetensi dari sertifikasi BNSP</small></li>
+<li><b>Unit testing</b><small>Unit kompetensi dari sertifikasi BNSP</small></li>
+<li><b>Microsoft Office &amp; Excel dasar</b><small>Untuk dokumen dan olah data sehari-hari</small></li></ul></div>
+</div>
+<p class="note rv">Bukti sertifikatnya ada di bagian <a href="#dokumen">Dokumen</a>.</p></div></section>
+
+<section id="magang"><div class="w"><h2 class="rv">Magang: dari ngobrol jadi sistem</h2>
+<div class="two">
+<div class="txt rv"><p>Aku magang di Divisi Aset dan Perlengkapan PERUMDA Tirta Al Bantani, Kabupaten Serang. Di sana aku belajar dulu bagaimana tim mencatat dan mengelola aset sehari-hari, baru merancang sistemnya.</p>
+<p>Hasilnya adalah Inventaris Aset: sistem web berbasis QR Code yang bikin aset lebih cepat dikenali dan datanya lebih rapi. Foto di samping saat sistemnya kuperlihatkan ke pihak PERUMDA.</p>
+<div class="pills"><span class="pill">PERUMDA Tirta Al Bantani</span><span class="pill">Kab. Serang</span><span class="pill">Divisi Aset &amp; Perlengkapan</span></div>
+<button class="btn alt" data-doc="cert-magang">Lihat sertifikat magang</button></div>
+<figure class="frame rv" data-open="img/magang-serah-terima.jpg" data-t="Serah terima sistem Inventaris Aset" data-d="Bersama tim PERUMDA Tirta Al Bantani"><img src="img/magang-serah-terima.jpg" width="1100" height="1083" alt="Aulia menyerahkan laptop berisi sistem Inventaris Aset kepada dua staf PERUMDA" loading="lazy" decoding="async"><figcaption>Momen serah terima sistem Inventaris Aset</figcaption></figure>
+</div>
+
+<div class="pj rv" style="margin-top:80px"><div class="br" id="tl"><i><s></s><s></s><s></s></i><img src="img/inventaris-login.jpg" width="900" height="732" alt="Halaman login Inventaris Aset PERUMDA Tirta Al Bantani" loading="lazy" decoding="async"></div>
+<div><h3 style="font-size:1.7rem">Inventaris Aset PERUMDA Tirta Al Bantani</h3>
+<p class="lead" style="margin-top:6px">Sistem digitalisasi inventaris aset berbasis web dengan QR Code.</p>
+<dl><div><dt>Masalah yang dipecahkan</dt><dd>Aset perusahaan perlu dikenali dan dikelola datanya dengan lebih cepat dan tertata.</dd></div>
+<div><dt>Peranku</dt><dd>Analisis kebutuhan, rancangan UML, pengembangan web, autentikasi &amp; hak akses, dan antarmuka.</dd></div>
+<div><dt>Teknologi</dt><dd>CodeIgniter 4, QR Code, RBAC</dd></div></dl>
+<table class="hk"><tr><td>Hak Cipta</td><td>Program komputer, No. 001319453</td></tr><tr><td>Diumumkan</td><td>1 Juli 2026, Kota Serang</td></tr><tr><td>Pencatat</td><td>Kementerian Hukum RI</td></tr></table>
+<button class="btn alt" data-doc="surat-hki">Lihat surat pencatatan</button></div></div>
+
+<div class="term rv"><i><s></s><s></s><s></s>&nbsp; AsetController.php</i><pre id="pre"></pre></div>
+<p class="note rv">Ilustrasi alur inti sistem: scan QR, cek hak akses, tampilkan aset.</p>
+</div></section>
+
+<section id="kkm"><div class="w"><h2 class="rv">KKM: turun langsung ke desa</h2>
+<p class="lead rv">Di KKM aku kebagian Divisi Humas &amp; UMKM. Singkatnya, jadi jembatan antara kelompok kami, perangkat desa, dan pelaku usaha di sekitar sana.</p>
+<div class="pills rv"><span class="pill">Kelompok 56</span><span class="pill">Desa Kolelet Wetan, Rangkasbitung, Lebak</span><span class="pill">8 Juli – 23 Agustus 2025</span></div>
+<div class="two">
+<ol class="steps rv">
+<li><div><b>Kenalan dengan desa</b><span>Komunikasi awal dengan perangkat desa jadi tugas pertamaku, supaya kegiatan KKM berjalan lancar dan jelas arahnya.</span></div></li>
+<li><div><b>Dengar langsung dari pelaku usaha</b><span>Aku observasi dan wawancara pengrajin batik tradisional Lebak dan sebuah toko roti, untuk tahu apa yang sebenarnya mereka butuhkan.</span></div></li>
+<li><div><b>Bantu mereka go digital</b><span>Toko roti dibuatkan NIB, UMKM batik dibantu masuk Shopee, dan keduanya kudampingi belajar memakai platformnya.</span></div></li>
+<li><div><b>Tulis ceritanya</b><span>Temuan di lapangan kutulis jadi berita untuk memperkenalkan produk mereka dan membantu promosi lewat media digital.</span></div></li></ol>
+<div class="rv" style="display:grid;gap:22px"><figure class="frame" data-open="img/kkm-1.jpg" data-t="KKM Kelompok 56" data-d="Bersama siswa di acara MPLS SMK Darul Ulum Rangkasbitung"><img src="img/kkm-1.jpg" width="1600" height="900" alt="Foto bersama KKM Kelompok 56 dan siswa SMK Darul Ulum Rangkasbitung" loading="lazy" decoding="async"><figcaption>KKM Kelompok 56 bersama siswa di acara MPLS SMK Darul Ulum Rangkasbitung</figcaption></figure>
+<figure class="frame" data-open="img/kkm-2.jpg" data-t="KKM Kelompok 56" data-d="Sesi foto kedua"><img src="img/kkm-2.jpg" width="1600" height="900" alt="Foto bersama KKM Kelompok 56, versi pose peace" loading="lazy" decoding="async"><figcaption>Versi pose peace, karena satu foto tidak pernah cukup</figcaption></figure>
+<div><button class="btn alt" data-doc="cert-kkm">Lihat sertifikat KKM</button></div></div></div>
+</div></section>
+
+<section id="dokumen"><div class="w"><h2 class="rv">Sertifikat &amp; dokumen</h2><p class="lead rv">Semua bukti perjalananku di satu tempat. Pilih kategori, lalu klik kartunya untuk melihat versi besar.</p>
+<div class="dstat rv" id="dstat"></div>
+<div class="tabs" id="tabs" role="group" aria-label="Filter kategori dokumen"></div>
+<div class="docs" id="docs" aria-live="polite"></div></div></section>
+
+<section id="ct"><div class="w"><h2 class="rv">Punya ide? Yuk ngobrol.</h2><p class="lead rv" style="margin:0 auto">Kolaborasi, proyek baru, atau sekadar tukar pikiran soal sistem, aku senang dengar ceritamu.</p>
+<p class="ml rv"><a href="mailto:auliadeafadilah21@gmail.com"><b>auliadeafadilah21@gmail.com</b></a></p>
+<div class="row rv"><a class="btn" href="mailto:auliadeafadilah21@gmail.com">Kirim email ✉</a><button class="btn alt" id="cp">Salin alamat</button></div></div></section>
+<footer>Dibuat oleh Aulia Dea Fadilah, 2026</footer>
+
+<div id="mc" role="button" tabindex="0" aria-label="Maskot Dea-bot"><div id="bb" aria-live="polite">Halo! 👋</div><svg viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="94" rx="26" ry="5" fill="#2E234233"/><path d="M14 54a36 40 0 0 1 72 0v22a12 12 0 0 1-12 12H26a12 12 0 0 1-12-12z" fill="#F2A7BC" stroke="#2E2342" stroke-width="3"/><path d="M20 50a30 34 0 0 1 60 0c-10-14-50-14-60 0z" fill="#AEBFEA" stroke="#2E2342" stroke-width="3"/><g fill="#fff" stroke="#2E2342" stroke-width="2"><circle cx="37" cy="62" r="9"/><circle cx="63" cy="62" r="9"/></g><g fill="#2E2342"><circle cx="37" cy="62" r="4"/><circle cx="63" cy="62" r="4"/></g><path d="M44 76q6 6 12 0" stroke="#2E2342" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="27" cy="73" r="4" fill="#fff6"/><circle cx="73" cy="73" r="4" fill="#fff6"/></svg></div>
+
+<div id="md" role="dialog" aria-modal="true" aria-label="Pratinjau dokumen"><div class="bx"><button class="rb" id="x" aria-label="Tutup">✕</button><div class="st2" id="st"><img id="mi" alt=""></div><div class="cap"><div><span class="tg" id="mg"></span><h4 id="mt"></h4><p id="mo"></p><p class="hint" id="mh">Klik gambar untuk zoom · geser atau gunakan panah untuk pindah</p></div><div class="nv" id="nv"><button class="rb" id="pv" aria-label="Sebelumnya">←</button><span id="mn"></span><button class="rb" id="nx" aria-label="Berikutnya">→</button></div></div></div></div>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+// nama: tiap kata satu baris, tiap huruf beranimasi
+let li=0;$$('#nm .wd').forEach(w=>{w.innerHTML=[...w.textContent].map(c=>c===' '?'<span aria-hidden="true" style="display:inline-block;width:.3em"></span>':`<span class="l" aria-hidden="true" style="animation-delay:${.15+(li++)*.05}s">${c}</span>`).join('')});
+// teks mengetik
+const R=['Web Developer','Front End Developer','Sistem Informasi, S.Kom','Pembuat sistem inventaris QR'];let ri=0,ci=0,del=0;const ty=$('#ty');
+(function t(){const w=R[ri];ty.textContent=w.slice(0,ci);if(!del&&ci++==w.length){del=1;return setTimeout(t,1600)}if(del&&--ci<0){del=0;ci=0;ri=(ri+1)%R.length}setTimeout(t,del?35:75)})();
+// reveal
+if('IntersectionObserver'in window){const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:0,rootMargin:'0px 0px -6% 0px'});$$('.rv').forEach(e=>io.observe(e))}else $$('.rv').forEach(e=>e.classList.add('in'));
+// progress bar
+addEventListener('scroll',()=>{const h=document.documentElement;$('#bar').style.width=scrollY/Math.max(1,h.scrollHeight-innerHeight)*100+'%'},{passive:true});
+// kode mengetik
+const code=`<span class="m">// AsetController.php  (ilustrasi alur)</span>
+<span class="k">public function</span> <span class="f">show</span>(<span class="k">string</span> $kode)
+{
+    <span class="m">// 1. hanya pengguna yang berhak boleh melihat</span>
+    <span class="k">if</span> (! auth()-&gt;<span class="f">can</span>(<span class="s">'aset.lihat'</span>)) {
+        <span class="k">return</span> redirect()-&gt;<span class="f">to</span>(<span class="s">'/login'</span>);
+    }
+
+    <span class="m">// 2. cari aset dari kode pada QR</span>
+    $aset = $this-&gt;asetModel-&gt;<span class="f">where</span>(<span class="s">'kode'</span>, $kode)-&gt;<span class="f">first</span>();
+
+    <span class="k">return</span> <span class="f">view</span>(<span class="s">'aset/detail'</span>, [<span class="s">'aset'</span> =&gt; $aset]);
+}
+
+<span class="ok">$ scan QR → aset ditemukan ✓</span>`;
+let started=0;const pre=$('#pre');
+new IntersectionObserver(e=>{if(e[0].isIntersecting&&!started){started=1;if(RM){pre.innerHTML=code;return}let i=0;(function n(){let j=i;if(code[j]=='<'){j=code.indexOf('>',j)}i=j+1;pre.innerHTML=code.slice(0,i)+'<span class="cur"></span>';if(i<code.length)setTimeout(n,code[i-1]=='\n'?160:14);else pre.innerHTML=code+' <span class="cur"></span>'})()}},{threshold:.2}).observe(pre);
+// data dokumen
+const CATS={magang:'Magang & KKM',kompetensi:'Kompetensi & HKI',bahasa:'Bahasa Inggris',kursus:'Kursus online'};
+const DOCS=[
+{id:'cert-magang',c:'magang',t:'Sertifikat Penghargaan Magang',o:'PERUMDA Tirta Al Bantani, Kab. Serang',d:'',i:'img/cert-magang.jpg'},
+{id:'cert-kkm',c:'magang',t:'Sertifikat Peserta KKM',o:'Universitas Bina Bangsa · No. 251/LPPM/UNIBA/VIII/2025 · Dinyatakan lulus',d:'8 Juli – 23 Agustus 2025',i:'img/cert-kkm.jpg'},
+{id:'cert-bnsp',c:'kompetensi',t:'Kompetensi Front End Developer',o:'BNSP · LSP Teknologi Informatika Bisnis Digital · berlaku 3 tahun',d:'13 Juli 2026',i:'img/cert-bnsp.jpg'},
+{id:'surat-hki',c:'kompetensi',t:'Surat Pencatatan Ciptaan',o:'Kementerian Hukum RI · No. 001319453 · alamat disamarkan',d:'1 Juli 2026',i:'img/surat-hki.jpg'},
+{id:'cert-ept',c:'bahasa',t:'Test of English Proficiency',o:'UPT Pusat Bahasa Universitas Bina Bangsa · skor total 420',d:'13 Juni 2026',i:'img/cert-ept.jpg'},
+{id:'cert-ept-prep',c:'bahasa',t:'EPT Preparation Course',o:'UPT Pusat Bahasa Universitas Bina Bangsa',d:'18 Mei 2026',i:'img/cert-ept-prep.jpg'},
+{id:'cert-komdigi',c:'kursus',t:'Pengenalan Data Science dan Pemanfaatannya di Berbagai Sektor',o:'Komdigi · Digital Talent Scholarship',d:'22 November 2026',i:'img/cert-komdigi.jpg'},
+{id:'cert-hplife',c:'kursus',t:'Perencanaan Strategis di Era AI',o:'HP LIFE · HP Foundation',d:'24 November 2026',i:'img/cert-hplife.jpg'},
+{id:'cert-ci3',c:'kursus',t:'Dasar CodeIgniter 3',o:'Bisa.ai Academy',d:'23 November 2026',i:'img/cert-ci3.jpg'},
+{id:'cert-excel',c:'kursus',t:'Basic Excel',o:'Bisa.ai Academy',d:'26 November 2026',i:'img/cert-excel.jpg'},
+{id:'cert-simplilearn',c:'kursus',t:'Introduction to Front End Development',o:'Simplilearn SkillUP',d:'26 November 2026',i:'img/cert-simplilearn.jpg'}];
+const esc=t=>t.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+let filt='all';
+$('#dstat').innerHTML=`<span><b>${DOCS.length}</b> dokumen</span><span>·</span><span><b>${Object.keys(CATS).length}</b> kategori</span><span>·</span><span>klik untuk memperbesar</span>`;
+function shown(){return filt==='all'?DOCS:DOCS.filter(x=>x.c===filt)}
+function renderTabs(){$('#tabs').innerHTML=[['all','Semua',DOCS.length],...Object.entries(CATS).map(([k,v])=>[k,v,DOCS.filter(x=>x.c===k).length])].map(([k,v,n])=>`<button class="tab" data-f="${k}" aria-pressed="${k===filt}">${esc(v)} <i>${n}</i></button>`).join('')}
+function renderDocs(){$('#docs').innerHTML=shown().map((x,n)=>`<button class="dc" data-id="${x.id}" style="animation-delay:${n*50}ms"><span class="th"><span class="tg c-${x.c}">${esc(CATS[x.c])}</span><img src="${x.i}" alt="${esc(x.t)}" loading="lazy" decoding="async"></span><span class="tx"><b>${esc(x.t)}</b><small>${esc(x.o.split(' · ')[0])}</small>${x.d?`<time>${esc(x.d)}</time>`:''}</span></button>`).join('')}
+renderTabs();renderDocs();
+$('#tabs').addEventListener('click',e=>{const t=e.target.closest('.tab');if(!t)return;filt=t.dataset.f;renderTabs();renderDocs();$('#tabs .tab[aria-pressed=true]').scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'})});
+// pratinjau besar (dokumen & foto)
+const md=$('#md');let L=[],ix=0;
+function show(){const x=L[ix];$('#mi').src=x.i;$('#mi').alt=x.t;$('#mt').textContent=x.t;$('#mo').textContent=[x.o,x.d].filter(Boolean).join(' · ');const g=$('#mg');g.textContent=x.c?CATS[x.c]:'Foto';g.className='tg '+(x.c?'c-'+x.c:'c-kompetensi');$('#nv').style.display=L.length>1?'flex':'none';$('#mn').textContent=(ix+1)+' / '+L.length;md.classList.remove('z');$('#st').scrollTo(0,0);[ix+1,ix-1].forEach(k=>{const y=L[(k+L.length)%L.length];if(y){const im=new Image();im.src=y.i}})}
+function openL(list,i){L=list;ix=i;show();md.classList.add('o');document.body.style.overflow='hidden';$('#x').focus()}
+function closeM(){md.classList.remove('o','z');document.body.style.overflow=''}
+const step=n=>{if(L.length>1){ix=(ix+n+L.length)%L.length;show()}};
+document.addEventListener('click',e=>{
+ const c=e.target.closest('.dc');if(c){const l=shown();openL(l,l.findIndex(x=>x.id===c.dataset.id));return}
+ const d=e.target.closest('[data-doc]');if(d){const i=DOCS.findIndex(x=>x.id===d.dataset.doc);if(i>-1)openL(DOCS,i);return}
+ const f=e.target.closest('[data-open]');if(f)openL([{i:f.dataset.open,t:f.dataset.t,o:f.dataset.d,d:''}],0)});
+md.addEventListener('click',e=>{if(e.target===md)closeM()});
+$('#x').onclick=closeM;$('#pv').onclick=()=>step(-1);$('#nx').onclick=()=>step(1);
+$('#mi').onclick=()=>md.classList.toggle('z');
+addEventListener('keydown',e=>{if(!md.classList.contains('o'))return;if(e.key==='Escape')closeM();if(e.key==='ArrowRight')step(1);if(e.key==='ArrowLeft')step(-1)});
+let sx=null;$('#st').addEventListener('pointerdown',e=>{sx=e.clientX});
+$('#st').addEventListener('pointerup',e=>{if(sx!==null&&!md.classList.contains('z')&&Math.abs(e.clientX-sx)>60)step(e.clientX<sx?1:-1);sx=null});
+// konfeti
+const cv=$('#fx'),cx=cv.getContext('2d');let P=[],run=0;
+function size(){cv.width=innerWidth;cv.height=innerHeight}size();addEventListener('resize',size);
+function frame(){cx.clearRect(0,0,cv.width,cv.height);P=P.filter(p=>p.l-->0);P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.45;cx.globalAlpha=p.l/70;cx.fillStyle=p.c;cx.fillRect(p.x,p.y,p.r,p.r*1.6)});if(P.length)requestAnimationFrame(frame);else run=0}
+function boom(x,y){if(RM)return;for(let i=0;i<46;i++)P.push({x,y,vx:(Math.random()-.5)*12,vy:-Math.random()*11-3,c:['#F2A7BC','#FFD66B','#AEBFEA'][i%3],r:Math.random()*6+3,l:70});if(!run){run=1;requestAnimationFrame(frame)}}
+$('#cp').onclick=e=>{const b=e.currentTarget;try{navigator.clipboard.writeText('auliadeafadilah21@gmail.com').catch(()=>{})}catch(_){}b.textContent='Tersalin! ✓';const r=b.getBoundingClientRect();boom(r.left+r.width/2,r.top);setTimeout(()=>b.textContent='Salin alamat',2000)};
+// maskot
+const bb=$('#bb'),say=(t,ms=2600)=>{bb.textContent=t;bb.classList.add('on');clearTimeout(say.t);say.t=setTimeout(()=>bb.classList.remove('on'),ms)};
+const M={hero:'Halo, aku Dea-bot! 👋',about:'Kenalan dulu yuk ☕',skills:'Ini peralatannya',magang:'Dari magang jadi sistem ✨',kkm:'Terjun ke desa 🌿',dokumen:'Klik kartunya, ada versi besar',ct:'Sapa dia ya 💌'};
+const so=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&M[x.target.id]&&say(M[x.target.id])),{threshold:.35});$$('header,section').forEach(s=>so.observe(s));
+const J=['Ayo scroll lagi!','Kopi dulu ☕','Kode rapi, hati senang','Coba klik sertifikatnya!'];
+const mc=$('#mc');mc.onclick=()=>{say(J[Math.random()*J.length|0]);const r=mc.getBoundingClientRect();boom(r.left+30,r.top)};mc.onkeydown=e=>{if(e.key==='Enter')mc.click()};
+</script>
+</body>
+</html>
